@@ -1,0 +1,43 @@
+<%- include ("./partials/header") %>
+<div class="container">
+    <div class="check">
+        <h2> 
+            <% function jsUcfirst(string) { return string.charAt(0).toUpperCase() + string.slice(1);} %>
+            <% let tempInFahrenheit = (data.main.temp * 9/5) - 459.67; %>
+            <%= data.name %>
+                <br>
+            <%=Math.floor(tempInFahrenheit)%> degrees outside
+            <% data.weather.forEach(function(result) { %>
+                <br>
+            <%= jsUcfirst(result.description )%>
+            <% }) %>
+        </h2>
+        <h2><a href="/">Back</a></h2>
+    </div>
+</div>
+<div id="map"></div>
+
+<script>
+    function initMap() {
+        let lat = <%= data.coord.lat%>;
+        let lng =   <%= data.coord.lon%>;
+        let center = {lat: lat, lng: lng };
+        console.log(lat, lng);
+        let map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 8,
+              center: center,
+              scrollwheel: false
+          });
+        let marker = new google.maps.Marker({
+              position: center,
+              map: map
+          });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        };
+ 
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKqp7ObS5cRq3_IBfkHLAZycW7gW7X1u4&callback=initMap"></script>
+
+<%- include ("./partials/footer") %>

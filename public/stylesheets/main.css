@@ -1,0 +1,14 @@
+#map{
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+}
+.check{
+    text-align: center;
+}
+h3, h2, a{
+    color: #eee;
+}
+body {
+background-image: url("https://images.unsplash.com/photo-1455492240783-79edeb7ce981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80");
+}
