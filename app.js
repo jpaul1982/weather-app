@@ -18,8 +18,41 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/results", (req, res) => {
+app.get("/city", (req, res) => {
+  res.render("city");
+});
+
+app.get("/zip", (req, res) => {
+  res.render("zip");
+});
+
+app.get("/results_city", (req, res) => {
   let query = req.query.search;
+  console.log("Search params:", query);
+  let weatherApiKey = process.env.WEATHER_API_KEY;
+  let weatherUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    query +
+    "&appid=" +
+    weatherApiKey;
+  rp(weatherUrl)
+    .then((body) => {
+      let data = JSON.parse(body);
+      res.render("results", { data: data });
+      console.log(data);
+      })
+    .catch(err => {
+      if (err) {
+        res.render("Error")
+        return;
+      }
+      console.log(err);
+    });
+});
+
+app.get("/results_zip", (req, res) => {
+  let query = req.query.search;
+  console.log("Search params:", query);
   let weatherApiKey = process.env.WEATHER_API_KEY;
   let weatherUrl =
     "https://api.openweathermap.org/data/2.5/weather?zip=" +
@@ -30,10 +63,13 @@ app.get("/results", (req, res) => {
     .then((body) => {
       let data = JSON.parse(body);
       res.render("results", { data: data });
-      console.log("DOTENV", process.env);
-      
-    })
+      console.log(data);
+      })
     .catch(err => {
+      if (err) {
+        res.render("Error")
+        return;
+      }
       console.log(err);
     });
 });

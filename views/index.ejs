@@ -1,13 +1,9 @@
 <%- include ("./partials/header") %>
 
 <div class="container">
-    
-        <h1 class="check">Check the Weather in: </h1>
-        <form  class="check" action="/results" method="get">
-            <input type="number" name="search" placeholder="zip code">
-            <input class="btn-xs"type="submit" value="?">
-        </form>
-    
+    <h1 id="header">What's the Weather?
+    </h1>
+    <h2 id="search" >Search by <a class="hvr-grow-shadow" href="/city">City</a> or <a href="/zip">Zip Code</a></h2>
 </div>
 
 <%- include ("./partials/footer") %>

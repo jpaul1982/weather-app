@@ -1,15 +1,65 @@
 #map{
-    height: 400px;
-    width: 400px;
-    margin: 0 auto;
-}
-.check{
+    height: 500px;
+    width: 450px;
+    margin: 40px auto;
+} 
+.result{
     text-align: center;
+    color: rgb(32, 28, 28);
+    font-size: 2em;
+    margin-top: -10px;
 }
-h3, h2,h1, a{
-    color: #eee;
+#header {
+    font-size: 4em;
+}
+form {
+    margin: 45px 230px;
+}
+.container {
+    background: rgba(227, 231, 238, 0.65);
+    margin-top: 125px;
+    width: 700px;
+    height: 200px;
+    border-radius: 10px;
+    /* opacity: .5; */
+}
+#search{
+    margin-top: 25px;
+}
+
+h1 {
     text-align: center;
+    background-color: transparent;
+    color: rgb(32, 28, 28);
+}  
+h2,a{
+    text-align: center;
+    color: rgb(32, 28, 28);
+    margin-top: 10px;
+}
+
+a:hover {
+    color:rgba(230, 103, 45, 0.794);
+    text-decoration:none;
+}
+
+
+#sky {
+	overflow: hidden;
 }
 body {
-background-image: url("https://images.unsplash.com/photo-1455492240783-79edeb7ce981?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80");
+    font-family: 'Fredericka the Great', cursive;
+    height: 1000px;
+	background-image: url('https://images.unsplash.com/photo-1455735459330-969b65c65b1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80');
+	-webkit-animation: movingclouds 25s linear infinite;
+	-moz-animation: movingclouds 25s linear infinite;
+	-o-animation: movingclouds 25s linear infinite;
 }
+
+@keyframes movingclouds {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%;
+    }

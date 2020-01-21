@@ -1,26 +1,42 @@
 <%- include ("./partials/header") %>
 <div class="container">
-    <div class="check">
-        <h2> 
-            <% let tempInFahrenheit = (data.main.temp * 9/5) - 459.67; %>
-            In <%= data.name %> it's  <%=Math.floor(tempInFahrenheit)%> degrees outside.
-                <br>
-           
+  
+        <h2 style='font-size: 2.7em;'> 
             <% data.weather.forEach(function(result) { %>
-                <br>
-            It's looking like <%=(result.description )%>.
-            <% }) %>
+            Looking like <%=(result.description )%>.
+                <% }) %>
         </h2>
-        
-   
+        <br>
+        <div class="result">
+            <% let tempInFahrenheit = (data.main.temp * 9/5) - 459.67; %>
+            It's currently <%=Math.floor(tempInFahrenheit)%> degrees in <%= data.name %>.
+            <% if (Math.floor(tempInFahrenheit) < 10) { %>
+                <p>If you are outside right now you are a crazy person.</p>
+                <% } else if (Math.floor(tempInFahrenheit) >= 10 && Math.floor(tempInFahrenheit) < 20 ) { %>    
+                    <p>Getting warmer, but nothing to write home about.</p> 
+                    <% } else if (Math.floor(tempInFahrenheit) >= 20 && Math.floor(tempInFahrenheit) < 50 ) { %>    
+                    <p>Getting warmer, but nothing to write home about.</p>  
+                        <% } else if (Math.floor(tempInFahrenheit) >= 50 && Math.floor(tempInFahrenheit) < 75 ) { %>
+                        <p>Not too shabby - sweater weather</p>
+                            <% } else if (Math.floor(tempInFahrenheit) >= 75 && Math.floor(tempInFahrenheit) < 85 ) { %>
+                            <p>Perfection!</p>
+                                <% } else if (Math.floor(tempInFahrenheit) >= 85 && Math.floor(tempInFahrenheit) < 95 ) { %>
+                                <p>Warm one out today.</p>
+                                    <% } else if (Math.floor(tempInFahrenheit) >= 95) { %>
+                                    <p>Ok - maybe this global warming thing is real.</p>
+                                        <% } %>          
+                                        <br>
 
-<div id="map"></div>
-<h2><a href="/">Back</a></h2>
-</div>
+                                    </div>
+                                  
+     
+        
+        <div id="map"></div>
+        <h2><a href="/">Back</a></h2>
+    </div>
 </div>
 
 <script>
-    
     function initMap() {
         let lat = <%= data.coord.lat%>;
         let lng =   <%= data.coord.lon%>;
