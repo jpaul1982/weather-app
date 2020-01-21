@@ -67,8 +67,7 @@ app.get("/results_zip", (req, res) => {
       })
     .catch(err => {
       if (err) {
-        res.render("Error")
-        return;
+        res.render("Error");
       }
       console.log(err);
     });
