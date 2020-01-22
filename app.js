@@ -1,10 +1,9 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const rp = require("request-promise");
 let bodyParser = require("body-parser");
-
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -26,6 +25,10 @@ app.get("/zip", (req, res) => {
   res.render("zip");
 });
 
+app.get("/error", (req, res) => {
+  res.render("error")
+});
+
 app.get("/results_city", (req, res) => {
   let query = req.query.search;
   console.log("Search params:", query);
@@ -36,17 +39,17 @@ app.get("/results_city", (req, res) => {
     "&appid=" +
     weatherApiKey;
   rp(weatherUrl)
-    .then((body) => {
+    .then(body => {
       let data = JSON.parse(body);
       res.render("results", { data: data });
       console.log(data);
-      })
+    })
     .catch(err => {
       if (err) {
-        res.render("Error")
+        console.log("Error", err);
+        res.redirect("/error");
         return;
       }
-      console.log(err);
     });
 });
 
@@ -60,19 +63,19 @@ app.get("/results_zip", (req, res) => {
     "&appid=" +
     weatherApiKey;
   rp(weatherUrl)
-    .then((body) => {
+    .then(body => {
       let data = JSON.parse(body);
       res.render("results", { data: data });
-      console.log(data);
-      })
+      // console.log(data);
+    })
     .catch(err => {
       if (err) {
-        res.render("Error");
+        console.log("Error", err);
+        res.redirect("/error");
       }
-      console.log(err);
     });
 });
-    
+
 app.listen(PORT, () => {
   console.log("Weather App is listening on PORT:", PORT);
 });
