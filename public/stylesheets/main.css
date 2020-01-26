@@ -42,18 +42,14 @@ a:hover {
     color:rgba(230, 103, 45, 0.794);
     text-decoration:none;
 }
-
-
-#sky {
-	overflow: hidden;
-}
-body {
+ body {
     font-family: 'Fredericka the Great', cursive;
-    height: 1000px;
+    height: 2000px;
 	background-image: url('https://images.unsplash.com/photo-1455735459330-969b65c65b1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80');
 	-webkit-animation: movingclouds 25s linear infinite;
 	-moz-animation: movingclouds 25s linear infinite;
-	-o-animation: movingclouds 25s linear infinite;
+    -o-animation: movingclouds 25s linear infinite;
+    background-size: cover;
 }
 
 @keyframes movingclouds {
