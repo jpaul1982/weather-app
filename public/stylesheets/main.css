@@ -1,8 +1,18 @@
 #map{
-    height: 500px;
-    width: 450px;
-    margin: 40px auto;
+    height: 1000px;
+    width: 600px;
+    margin:  auto;
 } 
+#index{
+    height: 200px;
+}
+.check {
+    display:flex;
+    flex-grow: 2;
+   
+   
+}
+
 .result{
     text-align: center;
     color: rgb(32, 28, 28);
@@ -12,17 +22,35 @@
 #header {
     font-size: 4em;
 }
-form {
-    margin: 45px 230px;
+.back {
+    margin-top:90px;
 }
+form {
+    margin: 30px;
+}
+.btn-xs{
+    height: 35px;
+}
+#location-input{
+    width: 250px;
+    margin-left: 175px;
+    justify-content: center;
+
+}
+
 .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background: rgba(227, 231, 238, 0.65);
     margin-top: 125px;
     width: 700px;
-    height: 200px;
+    height: 750px;
     border-radius: 10px;
+    /* z-index: -1; */
     /* opacity: .5; */
 }
+
 #search{
     margin-top: 25px;
 }
@@ -43,12 +71,13 @@ a:hover {
     text-decoration:none;
 }
  body {
-    font-family: 'Fredericka the Great', cursive;
-    height: 2000px;
+    font-family: 'EB Garamond', serif;
+    height: 900px;
+    background-repeat: no-repeat;
 	background-image: url('https://images.unsplash.com/photo-1455735459330-969b65c65b1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80');
 	-webkit-animation: movingclouds 25s linear infinite;
 	-moz-animation: movingclouds 25s linear infinite;
-    -o-animation: movingclouds 25s linear infinite;
+    -o-animation: movingclouds 90s linear infinite;
     background-size: cover;
 }
 
@@ -59,3 +88,43 @@ a:hover {
     100% {
       background-position: 100%;
     }
+}
+
+@media only screen and (max-width: 600px) {
+    
+  }
+  
+  @media only screen and (max-width: 600px) {
+   
+    
+  }
+  
+
+  
+  @media only screen and (max-width: 850px) {
+    .container {
+        display:flex;
+        flex-direction: column;
+        width: 650px;
+        height:750px;
+        font-size: 15px;
+    }
+    #index{
+        display: flex;
+    }
+    .check {
+        position: relative;
+        display:flex;
+    }
+    #location-input{
+       margin-left: 135px;
+    }
+    #map{
+        width: 475px;
+    }
+    }
+   
+   
+  } 
+  
+  

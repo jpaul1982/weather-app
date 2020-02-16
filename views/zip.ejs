@@ -1,10 +1,10 @@
 <%- include ("./partials/header") %>
-<div class="container">
+<div id="index" class="container">
     <h1>Search by Zip Code (US only):</h1>
         <form  class="check" action="/results_zip" method="get">
-            <input type="number" name="search" placeholder="zip code">
-            <input class="btn-xs"type="submit" value="?">
+            <input id="location-input" class="form-control form-control-lg" type="number" name="search" placeholder="zip code">
+            <input style=margin-left:5px class="btn-xs"type="submit" value="?">
         </form>
-        <h2 style="margin-top: -15px;"><a href="/">Back</a></h2>
+        <h2 style="margin-top: -25px;"><a href="/">Back</a></h2>
     </div>
 <%- include ("./partials/footer") %>

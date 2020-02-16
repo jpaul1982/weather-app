@@ -26,13 +26,14 @@
                                     <p>Ok - maybe this global warming thing is real.</p>
                                         <% } %>          
                                         <br>
-
+                                        
                                     </div>
+                                    
                                   
      
         
         <div id="map"></div>
-        <h2><a href="/">Back</a></h2>
+    <h2 class="back"><a href="/">Back</a></h2>
     </div>
 </div>
 
@@ -45,7 +46,87 @@
         let map = new google.maps.Map(document.getElementById("map"), {
               zoom: 8,
               center: center,
-              scrollwheel: false
+              scrollwheel: false,
+             styles: [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#46bcec"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
           });
         let marker = new google.maps.Marker({
               position: center,
